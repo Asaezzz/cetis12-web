@@ -2,121 +2,291 @@
    ESTILOS GENERALES Y PORTADA - CBTis 166
    ====================================================================== */
 *{
-    box-sizing: border-box; /* Incluye bordes y rellenos en el ancho y alto total */
-    margin: 0;              /* Elimina los márgenes predeterminados de la página */
-    padding: 0;             /* Elimina los rellenos internos predeterminados */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía principal limpia y moderna */
-    color:#370aa8;                 /* Color de texto base gris oscuro */
-    background-color:#d6200f;      /* Color de fondo general suave para el sitio */
-    line-height: 1.6;               /* Espaciado de línea cómodo para la lectura */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #370aa8;
+    background-color: #d6200f;
+    line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------
    BARRA SUPERIOR DE CONTACTO
    -------------------------------------------------------------------- */
 .top-bar {
-    background-color: #d6200f;              /* Fondo oscuro para la franja de contacto superior */
-    color: #cbd5e1;                         /* Color de texto gris claro secundario */
-    font-size: 0.82rem;                     /* Tamaño de fuente pequeño y sutil */
-    padding: 0.5rem 2rem;                   /* Relleno interno superior/inferior y lateral */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria inferior translúcida */
+    background-color: #d6200f;
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    padding: 0.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .top-bar-container {
-    max-width: 1200px;     /* Ancho máximo estructurado para mantener simetría */
-    margin: 0 auto;        /* Centra horizontalmente el contenedor */
-    display: flex;         /* Activa el diseño flexible */
-    justify-content: space-between; /* Distribuye el espacio entre los elementos internos */
-    align-items: center;   /* Centra verticalmente los elementos */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .top-contacts {
-    display: flex;         /* Distribuye los datos de contacto en fila horizontal */
-    gap: 2rem;             /* Separación horizontal entre los elementos */
+    display: flex;
+    gap: 2rem;
 }
 
 .top-item.whatsapp {
-    color: #4ade80;        /* Color verde característico para destacar WhatsApp */
+    color: #4ade80;
 }
 
 /* ======================================================================
-   BARRA DE NAVEGACIÓN RESPONSIVA
+   BARRA DE NAVEGACIÓN RESPONSIVA (MENÚ HAMBURGUESA Y "PAPITAS")
    ====================================================================== */
 .navbar {
-    background-color: #ffffff; /* Fondo blanco sólido para el menú de navegación */
-    border-bottom: 1px solid #e2e8f0; /* Borde inferior sutil */
-    position: sticky;          /* Fija la barra en la parte superior al hacer scroll */
-    top: 0;                    /* Posición de anclaje exacto en la parte superior */
-    z-index: 1000;             /* Asegura que la barra esté siempre por encima de otros elementos */
-    padding: 0.8rem 1.5rem;    /* Relleno interior de la barra de navegación */
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.8rem 1.5rem;
 }
 
 .nav-container {
-    max-width: 1200px;         /* Ancho máximo alineado con el resto del sitio */
-    margin: 0 auto;            /* Centra el contenedor del menú */
-    display: flex;             /* Modelo flexible */
-    justify-content: space-between; /* Separa el logotipo de los enlaces del menú */
-    align-items: center;       /* Alinea verticalmente al centro */
-    flex-wrap: wrap;           /* Permite que los elementos bajen si falta espacio */
-    gap: 1rem;                 /* Espaciado predeterminado */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-brand {
-    display: flex;             /* Contenedor flexible para la marca/logo */
-    align-items: center;       /* Centra verticalmente el logotipo */
+    display: flex;
+    align-items: center;
 }
 
 .brand-logo-img {
-    height: 55px;              /* Altura fija estándar para el logotipo institucional */
-    width: auto;               /* Ancho proporcional automático */
-    object-fit: contain;       /* Evita deformaciones en la imagen */
-    display: block;            /* Elimina espacios fantasma inferiores */
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    display: block;
 }
 
-.nav-links {
-    display: flex;             /* Organiza los enlaces de navegación en línea */
-    align-items: center;       /* Centra verticalmente */
-    gap: 1.5rem;               /* Espacio de separación entre cada opción del menú */
-    flex-wrap: wrap;           /* Adaptable en pantallas chicas */
+/* Botón Hamburguesa (= que se convierte en X) */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
 }
 
-.nav-links a {
-    text-decoration: none;     /* Quita el subrayado predeterminado de los enlaces */
-    color: #475569;            /* Color de texto gris intermedio */
-    font-weight: 600;          /* Seminegrita para mejor visibilidad */
-    font-size: 0.9rem;         /* Tamaño de fuente adecuado */
-    transition: color 0.2s;    /* Transición suave al cambiar de color */
+.hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #3116ca; /* Color morado */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
 }
 
-.nav-links a:hover {
-    color: #2563eb;            /* Cambia a azul corporativo al pasar el cursor */
+/* Animación de la Hamburguesa a "X" */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menú Principal Desplegable en Móvil */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #4d10c0;
+    padding: 1rem 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    list-style: none;
+    text-align: center;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-item {
+    position: relative;
+    width: 100%;
+}
+
+.nav-link {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.nav-link:hover {
+    background-color: #511ea3;
 }
 
 .btn-nav-login {
-    background-color:#d6200f; /* Fondo azul destacado para el botón de alumnos */
-    color: white !important;   /* Texto blanco forzado */
-    padding: 8px 16px;         /* Relleno interior del botón */
-    border-radius: 6px;        /* Esquinas redondeadas */
-    transition: background-color 0.2s; /* Transición suave en el color de fondo */
+    background-color: #d6200f !important;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0.5rem auto;
 }
 
-.btn-nav-login:hover {
-    background-color: #1d4ed8; /* Azul más oscuro al pasar el cursor */
+/* Submenús ("papitas" y aderezos) en móvil */
+.submenu, .submenu-lvl2 {
+    display: none;
+    list-style: none;
+    padding: 0;
+    background-color: #7f1fac;
 }
 
-@media (max-width: 600px) {
-    .navbar {
-        padding: 0.6rem 1rem;  /* Reduce el padding en pantallas móviles pequeñas */
+.submenu.open, .submenu-lvl2.open {
+    display: block;
+}
+
+.submenu a, .submenu-lvl2 a {
+    display: block;
+    padding: 10px 30px;
+    color: #e0e1dd;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.submenu-lvl2 a {
+    padding-left: 45px;
+    background-color: #000814;
+}
+
+/* Flechitas indicadoras para desplegar */
+.dropdown-toggle::after, .submenu-toggle::after {
+    content: ' ▾';
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.dropdown-toggle.open::after, .submenu-toggle.open::after {
+    transform: rotate(180deg);
+}
+
+
+/* --------------------------------------------------------------------
+   MEDIA QUERY PARA ESCRITORIO (PC >= 768px)
+   -------------------------------------------------------------------- */
+@media (min-width: 768px) {
+    /* Ocultar botón hamburguesa en computadora */
+    .hamburger {
+        display: none !important;
     }
-    .nav-container {
-        justify-content: center; /* Centra los elementos del menú en móviles */
+
+    /* Mostrar menú en barra horizontal */
+    .nav-menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        align-items: center;
+        gap: 1.5rem;
     }
-    .nav-links {
-        gap: 1rem;             /* Reduce el espacio entre enlaces */
-        justify-content: center; /* Centra los enlaces */
+
+    .nav-item {
+        width: auto;
+    }
+
+    .nav-link {
+        color: #475569;
+        padding: 0.5rem 0;
+    }
+
+    .nav-link:hover {
+        background-color: transparent;
+        color: #2563eb;
+    }
+
+    .btn-nav-login {
+        background-color: #d6200f !important;
+        color: white !important;
+        padding: 8px 16px;
+        margin: 0;
+    }
+
+    /* Posicionamiento de las "papitas" estilo desplegable en PC */
+    .nav-item.dropdown {
+        position: relative;
+    }
+
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        background-color: #0d1b2a;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        text-align: left;
+    }
+
+    .submenu a {
+        color: #ffffff;
+        padding: 10px 15px;
+    }
+
+    .submenu a:hover {
+        background-color: #1b263b;
+    }
+
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .submenu-lvl2 {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 200px;
+        background-color: #1b263b;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+    .submenu-lvl2 a {
+        color: #ffffff;
+    }
+
+    /* Despliegue automático al pasar el cursor (hover) en PC */
+    .nav-item.dropdown:hover > .submenu {
+        display: block;
+    }
+
+    .dropdown-submenu:hover > .submenu-lvl2 {
+        display: block;
     }
 }
 
@@ -124,862 +294,863 @@ body {
    SECCIÓN HERO (DOS COLUMNAS CON COLLAGE)
    -------------------------------------------------------------------- */
 .hero-section {
-    background: linear-gradient(135deg, #1adb14 0%, #1e3a8a 100%); /* Fondo con degradado azul oscuro */
-    color: white;              /* Texto general en blanco para alto contraste */
-    padding: 5rem 2rem;        /* Relleno superior/inferior amplio y lateral */
-    overflow: hidden;          /* Oculta desbordamientos */
+    background: linear-gradient(135deg, #1adb14 0%, #1e3a8a 100%);
+    color: white;
+    padding: 5rem 2rem;
+    overflow: hidden;
 }
 
 .hero-container {
-    max-width: 1200px;         /* Ancho máximo del contenedor principal */
-    margin: 0 auto;            /* Centra el contenedor */
-    display: grid;             /* Utiliza CSS Grid para organizar las columnas */
-    grid-template-columns: 1.1fr 0.9fr; /* Texto ligeramente más ancho que el collage */
-    gap: 3rem;                 /* Espacio de separación entre columnas */
-    align-items: center;       /* Alinea verticalmente al centro */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
 }
 
 @media (max-width: 900px) {
     .hero-container {
-        grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas medianas/móviles */
+        grid-template-columns: 1fr;
     }
 }
 
 .hero-tag {
-    display: inline-block;     /* Permite aplicar padding y márgenes como bloque */
-    background-color: rgba(37, 99, 235, 0.3); /* Fondo azul translúcido */
-    border: 1px solid rgba(96, 165, 250, 0.4); /* Borde azul claro sutil */
-    color: #93c5fd;            /* Texto azul claro brillante */
-    padding: 6px 16px;         /* Relleno interior */
-    border-radius: 20px;       /* Bordes redondeados estilo píldora */
-    font-size: 0.85rem;        /* Tamaño de fuente compacto */
-    font-weight: 600;          /* Seminegrita */
-    text-transform: uppercase; /* Convierte el texto en mayúsculas */
-    margin-bottom: 1.5rem;     /* Margen inferior */
+    display: inline-block;
+    background-color: rgba(37, 99, 235, 0.3);
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    color: #93c5fd;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
 }
 
 .hero-text-side h1 {
-    font-size: 2.8rem;         /* Tamaño de fuente grande para el título principal */
-    font-weight: 800;          /* Grosor muy marcado */
-    margin-bottom: 1rem;       /* Espacio inferior */
-    letter-spacing: -0.5px;    /* Reduce ligeramente el espacio entre letras */
-    line-height: 1.2;          /* Altura de línea compacta */
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
 .hero-text-side p {
-    font-size: 1.1rem;         /* Tamaño de fuente cómodo para la descripción */
-    color: #cbd5e1;            /* Color gris claro legible */
-    margin-bottom: 2rem;       /* Espacio inferior */
-    line-height: 1.6;          /* Altura de línea legible */
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .hero-cta-box {
-    background: rgba(15, 23, 42, 0.4); /* Fondo oscuro semitransparente */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil translúcido */
-    padding: 1.8rem;           /* Relleno interno */
-    border-radius: 12px;       /* Bordes redondeados */
-    backdrop-filter: blur(6px); /* Efecto de desenfoque de cristal esmerilado */
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.8rem;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
 }
 
 .btn-orange {
-    display: inline-block;     /* Permite dimensiones en enlaces */
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); /* Degradado naranja llamativo */
-    color: white;              /* Texto blanco */
-    padding: 14px 28px;        /* Relleno interior generoso */
-    border-radius: 8px;        /* Bordes redondeados */
-    text-decoration: none;     /* Quita subrayado */
-    font-weight: 700;          /* Negrita */
-    font-size: 1.05rem;        /* Tamaño destacado */
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4); /* Sombra naranja difuminada */
-    transition: transform 0.2s, box-shadow 0.2s; /* Transiciones suaves */
-    margin-bottom: 1.2rem;     /* Espacio inferior */
+    display: inline-block;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.2rem;
 }
 
 .btn-orange:hover {
-    transform: translateY(-2px); /* Eleva ligeramente el botón al pasar el cursor */
-    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6); /* Aumenta intensidad de sombra */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.6);
 }
 
 .hero-benefits {
-    display: flex;             /* Organiza los beneficios en línea flexible */
-    flex-wrap: wrap;           /* Salto de línea automático */
-    gap: 15px;                 /* Espacio entre beneficios */
-    font-size: 0.9rem;         /* Tamaño estándar */
-    color: #e2e8f0;            /* Gris claro */
-    font-weight: 500;          /* Peso medio */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    font-weight: 500;
 }
 
 /* Estilos del Collage de Imágenes */
 .image-collage {
-    display: flex;             /* Organiza los elementos en columna */
-    flex-direction: column;    /* Dirección vertical */
-    gap: 15px;                 /* Espacio entre imágenes */
-    background: rgba(255, 255, 255, 0.05); /* Fondo translúcido sutil */
-    padding: 20px;             /* Relleno interior */
-    border-radius: 20px;       /* Bordes redondeados del contenedor */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .collage-main img {
-    width: 100%;               /* Ancho completo */
-    height: 240px;             /* Altura fija para la imagen principal */
-    object-fit: cover;         /* Recorta proporcionalmente sin deformar */
-    border-radius: 12px;       /* Bordes redondeados */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra de profundidad */
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .collage-sub {
-    display: grid;             /* Cuadrícula para las dos imágenes inferiores */
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    gap: 15px;                 /* Espacio entre las secundarias */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
 .collage-sub img {
-    width: 100%;               /* Ancho completo */
-    height: 140px;             /* Altura fija para secundarias */
-    object-fit: cover;         /* Recorte proporcional */
-    border-radius: 12px;       /* Bordes redondeados */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra de profundidad */
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* Clases específicas para el formulario de informes */
 .hero-title-custom {
-    font-size: 2.5rem;         /* Tamaño de título personalizado */
-    margin-bottom: 1rem;       /* Margen inferior */
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero-desc-custom {
-    color: #cbd5e1;            /* Color secundario */
-    font-size: 1rem;           /* Tamaño legible */
-    margin-bottom: 1.5rem;     /* Margen inferior */
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero-subtitle-custom {
-    font-size: 0.95rem;        /* Subtítulo */
-    font-weight: 600;          /* Seminegrita */
-    color: #93c5fd;            /* Azul claro */
-    margin-bottom: 0.8rem;     /* Margen inferior */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #93c5fd;
+    margin-bottom: 0.8rem;
 }
 
 .hero-benefits-column {
-    display: flex;             /* Flexible vertical */
-    flex-direction: column;    /* Apilado vertical */
-    gap: 8px;                  /* Espaciado ajustado */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .cbtis-hero-form-card {
-    background-color: #ffffff; /* Fondo blanco sólido para la tarjeta del formulario */
-    padding: 2.2rem;           /* Relleno interno amplio */
-    border-radius: 16px;       /* Bordes redondeados marcados */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Sombra elegante flotante */
-    width: 100%;               /* Ancho completo disponible */
-    max-width: 440px;          /* Ancho máximo de la tarjeta */
-    margin: 0 auto;            /* Centrado horizontal */
+    background-color: #ffffff;
+    padding: 2.2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
 }
 
 .form-card-title {
-    color: #0f172a;            /* Color oscuro */
-    font-size: 1.25rem;        /* Mediano destacado */
-    font-weight: 700;          /* Negrita */
-    margin-bottom: 1rem;       /* Margen inferior */
-    text-align: center;        /* Centrado */
+    color: #0f172a;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .form-group-margin {
-    margin-bottom: 1rem;       /* Espacio inferior estándar entre campos */
+    margin-bottom: 1rem;
 }
 
 .form-control-input {
-    width: 100%;               /* Ancho completo */
-    border: 1px solid #cbd5e1; /* Borde gris claro */
-    border-radius: 8px;        /* Bordes redondeados */
-    padding: 10px 14px;        /* Relleno interior cómodo */
-    font-size: 0.9rem;         /* Tamaño de letra interno */
-    outline: none;             /* Sin borde de enfoque por defecto */
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    outline: none;
 }
 
 .form-control-select {
-    width: 100%;               /* Ancho completo */
-    border: 1px solid #cbd5e1; /* Borde gris claro */
-    border-radius: 8px;        /* Bordes redondeados */
-    padding: 10px 14px;        /* Relleno interior */
-    font-size: 0.9rem;         /* Tamaño de fuente */
-    background: #fff;          /* Fondo blanco */
-    color: #475569;            /* Color de texto de opciones */
-    outline: none;             /* Quita contorno */
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    background: #fff;
+    color: #475569;
+    outline: none;
 }
 
 .form-date-label {
-    font-size: 0.78rem;        /* Letra pequeña para etiquetas de fecha */
-    color: #64748b;            /* Gris secundario */
-    display: block;            /* Ocupa su propia línea */
-    margin-bottom: 2px;        /* Margen inferior mínimo */
+    font-size: 0.78rem;
+    color: #64748b;
+    display: block;
+    margin-bottom: 2px;
 }
 
 .form-control-date {
-    width: 100%;               /* Ancho completo */
-    border: 1px solid #cbd5e1; /* Borde gris */
-    border-radius: 8px;        /* Bordes redondeados */
-    padding: 8px 14px;         /* Relleno interior */
-    font-size: 0.9rem;         /* Tamaño de fuente */
-    color: #334155;            /* Color de texto interno */
-    outline: none;             /* Quita contorno */
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    color: #334155;
+    outline: none;
 }
 
 .form-control-textarea {
-    width: 100%;               /* Ancho completo */
-    border: 1px solid #cbd5e1; /* Borde gris */
-    border-radius: 8px;        /* Bordes redondeados */
-    padding: 10px 14px;        /* Relleno interior */
-    font-size: 0.9rem;         /* Tamaño de fuente */
-    outline: none;             /* Quita contorno */
-    font-family: inherit;      /* Hereda tipografía general */
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: inherit;
 }
 
-/* ======================================================================
-   CORRECCIÓN DEFINITIVA PARA LA CASILLA Y EL TEXTO DE ACEPTAR TÉRMINOS
-   ====================================================================== */
 .form-group-checkbox {
-    margin-bottom: 1.2rem;     /* Espacio inferior */
-    display: flex;             /* Contenedor flexible */
-    flex-direction: row !important; /* Fuerza dirección horizontal estricta */
-    align-items: flex-start !important; /* Alinea arriba */
-    justify-content: flex-start !important; /* Alinea a la izquierda */
-    gap: 10px;                 /* Espacio horizontal entre cuadro y texto */
-    text-align: left;          /* Alineación izquierda */
-    width: 100%;               /* Ancho completo */
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 10px;
+    text-align: left;
+    width: 100%;
 }
 
 .form-checkbox-input {
-    width: 18px !important;    /* Ancho fijo forzado para el checkbox */
-    height: 18px !important;   /* Alto fijo forzado */
-    min-width: 18px;           /* Evita compresión */
-    cursor: pointer;           /* Cambia cursor a mano */
-    margin-top: 2px;           /* Ajuste vertical fino con la primera línea */
-    flex-shrink: 0;            /* Impide deformación */
-    appearance: auto;          /* Restaura el comportamiento visual nativo */
-    -webkit-appearance: checkbox; /* Compatibilidad WebKit */
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px;
+    cursor: pointer;
+    margin-top: 2px;
+    flex-shrink: 0;
+    appearance: auto;
+    -webkit-appearance: checkbox;
 }
 
 .form-checkbox-label {
-    font-size: 0.78rem !important; /* Letra pequeña legible para textos legales */
-    color: #475569 !important;     /* Gris oscuro */
-    line-height: 1.35 !important;  /* Altura de línea compacta */
-    cursor: pointer;               /* Cursor interactivo */
-    display: inline-block !important; /* Comportamiento en línea */
-    width: auto !important;        /* Ancho automático */
-    flex: 1;                       /* Ocupa el resto del espacio disponible */
+    font-size: 0.78rem !important;
+    color: #475569 !important;
+    line-height: 1.35 !important;
+    cursor: pointer;
+    display: inline-block !important;
+    width: auto !important;
+    flex: 1;
 }
 
 .form-submit-btn {
-    background-color: #0052ff;     /* Fondo azul intenso para el botón enviar */
-    width: 100%;                   /* Ancho completo */
-    border-radius: 8px;            /* Bordes redondeados */
-    padding: 12px;                 /* Relleno interior */
-    font-weight: 700;              /* Negrita */
-    color: white;                  /* Texto blanco */
-    border: none;                  /* Sin bordes */
-    cursor: pointer;               /* Cursor de mano */
-    transition: background 0.2s;   /* Transición suave */
+    background-color: #0052ff;
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .cbtis-hero-form-card input:focus, 
 .cbtis-hero-form-card select:focus, 
 .cbtis-hero-form-card textarea:focus {
-    border-color: #2563eb !important; /* Cambia el borde a azul brillante al enfocar */
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); /* Brillo sutil alrededor */
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 /* ======================================================================
    ESTILOS DE OFERTA EDUCATIVA CON IMÁGENES
    ====================================================================== */
 .careers-section {
-    padding: 5rem 2rem;            /* Espaciado superior/inferior */
-    background-color: #f8fafc;     /* Fondo claro */
+    padding: 5rem 2rem;
+    background-color: #f8fafc;
 }
 
 .section-container {
-    max-width: 1200px;             /* Ancho máximo centrado */
-    margin: 0 auto;                /* Centrado horizontal */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section-header {
-    text-align: center;            /* Centrado de títulos de sección */
-    margin-bottom: 3.5rem;         /* Espacio inferior */
+    text-align: center;
+    margin-bottom: 3.5rem;
 }
 
 .section-header h2 {
-    font-size: 2.2rem;             /* Título grande */
-    color: #0f172a;                /* Color oscuro */
-    margin-bottom: 0.5rem;         /* Espacio con subtítulo */
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
 }
 
 .section-header p {
-    color: #64748b;                /* Gris secundario */
-    font-size: 1.05rem;            /* Tamaño legible */
+    color: #64748b;
+    font-size: 1.05rem;
 }
 
 .careers-grid {
-    display: grid;                 /* Cuadrícula CSS adaptable */
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Columnas responsivas */
-    gap: 2rem;                     /* Espacio entre tarjetas */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
 }
 
 .career-card {
-    background-color: #ffffff;     /* Fondo blanco */
-    border: 1px solid #e2e8f0;     /* Borde sutil */
-    border-radius: 12px;           /* Esquinas redondeadas */
-    overflow: hidden;              /* Oculta desbordamientos internos */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* Sombra ligera */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transiciones suaves */
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .career-card:hover {
-    transform: translateY(-5px);   /* Eleva la tarjeta al pasar el cursor */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Acentúa la sombra */
-    border-color: #cbd5e1;         /* Oscurece borde */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
 }
 
 .career-img-container {
-    width: 100%;                   /* Ancho completo */
-    height: 160px;                 /* Altura fija de imagen */
-    overflow: hidden;              /* Oculta desbordamientos */
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
 }
 
 .career-img-container img {
-    width: 100%;                   /* Ancho adaptado */
-    height: 100%;                  /* Alto adaptado */
-    object-fit: cover;             /* Recorte proporcional */
-    transition: transform 0.3s ease; /* Transición para zoom */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .career-card:hover .career-img-container img {
-    transform: scale(1.05);        /* Efecto zoom in en imagen al hacer hover */
+    transform: scale(1.05);
 }
 
 .career-content {
-    padding: 1.8rem;               /* Relleno interno de textos */
+    padding: 1.8rem;
 }
 
 .career-content h3 {
-    font-size: 1.15rem;            /* Tamaño de título */
-    color: #0f172a;                /* Color oscuro */
-    margin-bottom: 0.8rem;         /* Espacio inferior */
-    font-weight: 700;              /* Negrita */
+    font-size: 1.15rem;
+    color: #0f172a;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
 }
 
 .career-content p {
-    color: #64748b;                /* Gris descriptivo */
-    font-size: 0.9rem;             /* Tamaño estándar */
-    line-height: 1.5;              /* Altura de línea */
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 /* ======================================================================
-   ESTILOS DEL PIE DE PÁGINA (FOOTER CON REDES SOCIALES)
+   ESTILOS DEL PIE DE PÁGINA (FOOTER)
    ====================================================================== */
 .footer {
-    background-color: #8114db;     /* Fondo oscuro institucional */
-    color: #94a3b8;                /* Texto gris claro */
-    padding: 2.5rem 2rem;          /* Relleno interior */
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Línea superior sutil */
+    background-color: #8114db;
+    color: #94a3b8;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-container {
-    max-width: 1200px;             /* Ancho máximo alineado */
-    margin: 0 auto;                /* Centrado horizontal */
-    display: flex;                 /* Distribución flexible */
-    justify-content: space-between; /* Separa créditos de redes */
-    align-items: center;           /* Centrado vertical */
-    flex-wrap: wrap;               /* Adaptable */
-    gap: 1.5rem;                   /* Espacio entre elementos */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .footer-info p {
-    font-size: 0.9rem;             /* Tamaño estándar */
-    color: #cbd5e1;                /* Color legible */
-    margin-bottom: 0.3rem;         /* Espacio mínimo */
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-bottom: 0.3rem;
 }
 
 .footer-author {
-    font-size: 0.82rem;            /* Letra pequeña para autor */
-    color: #64748b;                /* Gris sutil */
+    font-size: 0.82rem;
+    color: #64748b;
 }
 
 .footer-socials {
-    display: flex;                 /* Iconos en línea */
-    gap: 12px;                     /* Espacio entre iconos */
+    display: flex;
+    gap: 12px;
 }
 
 .social-icon {
-    width: 38px;                   /* Ancho fijo circular */
-    height: 38px;                  /* Alto fijo circular */
-    background: rgba(255, 255, 255, 0.08); /* Fondo translúcido */
-    border: 1px solid rgba(255, 255, 255, 0.12); /* Borde sutil */
-    color: #ffffff;                /* Icono blanco */
-    border-radius: 50%;            /* Círculo perfecto */
-    display: flex;                 /* Centrado interno */
-    align-items: center;           /* Centrado vertical */
-    justify-content: center;       /* Centrado horizontal */
-    text-decoration: none;         /* Sin subrayado */
-    font-weight: 700;              /* Negrita */
-    font-size: 0.95rem;            /* Tamaño del símbolo */
-    transition: background 0.2s, transform 0.2s, border-color 0.2s; /* Transiciones */
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.2s, border-color 0.2s;
 }
 
 .social-icon:hover {
-    background: #2563eb;           /* Azul corporativo al pasar cursor */
-    border-color: #2563eb;         /* Borde azul */
-    transform: translateY(-3px);   /* Eleva sutilmente el icono */
+    background: #2563eb;
+    border-color: #2563eb;
+    transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;    /* Columna en tablets y móviles */
-        text-align: center;        /* Centra textos del footer */
+        flex-direction: column;
+        text-align: center;
     }
     .footer-socials {
-        justify-content: center;   /* Centra iconos sociales */
+        justify-content: center;
     }
-}
-
-/* ======================================================================
-   ESTILOS DE LOGIN EN PANTALLA PARTIDA - CBTis 166
-   ====================================================================== */
-.cbtis-login-body {
-    margin: 0;                     /* Sin márgenes */
-    padding: 0;                    /* Sin padding */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía general */
-    background: linear-gradient(135deg, #121212 0%, #121212 100%); /* Fondo degradado */
-    min-height: 100vh;             /* Altura mínima de pantalla completa */
-    display: flex;                 /* Centrado flexible */
-    justify-content: center;       /* Centrado horizontal */
-    align-items: center;           /* Centrado vertical */
-}
-
-.cbtis-login-container {
-    width: 100%;                   /* Ancho completo */
-    max-width: 1000px;             /* Ancho máximo de la tarjeta de login */
-    height: 600px;                 /* Altura fija estándar */
-    background-color: #ffffff;     /* Fondo blanco */
-    border-radius: 12px;           /* Bordes redondeados */
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35); /* Sombra pronunciada */
-    display: grid;                 /* Pantalla dividida en cuadrícula */
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales (panel izquierdo y derecho) */
-    overflow: hidden;              /* Oculta desbordamientos */
-    margin: 2rem;                  /* Margen exterior */
-}
-
-@media (max-width: 850px) {
-    .cbtis-login-container {
-        grid-template-columns: 1fr; /* Una sola columna en dispositivos menores */
-        height: auto;               /* Altura automática */
-    }
-    .cbtis-left-panel {
-        display: none;              /* Oculta el panel izquierdo decorativo en móviles */
-    }
-}
-
-.cbtis-left-panel {
-    background: linear-gradient(135deg, #898d9c 0%,#898d9c 100%); /* Degradado oscuro */
-    color: white;                  /* Texto blanco */
-    padding: 3rem;                 /* Relleno interno */
-    display: flex;                 /* Diseño flexible */
-    flex-direction: column;        /* Apilado vertical */
-    justify-content: space-between; /* Distribuye espacio superior e inferior */
-}
-
-.cbtis-illustration-box {
-    text-align: center;            /* Centrado */
-    margin-top: 1rem;              /* Margen superior */
-}
-
-.cbtis-badge-icon {
-    font-size: 4.5rem;             /* Tamaño grande para icono/emoji */
-    margin-bottom: 0.5rem;         /* Margen inferior */
-}
-
-.cbtis-illustration-box h2 {
-    font-size: 2rem;               /* Título grande */
-    font-weight: 800;              /* Negrita fuerte */
-    letter-spacing: 1px;           /* Espaciado entre letras */
-}
-
-.cbtis-notices-box {
-    background: rgba(255, 255, 255, 0.1); /* Caja translúcida de avisos */
-    padding: 1.2rem;               /* Relleno interno */
-    border-radius: 8px;            /* Bordes redondeados */
-    margin-top: 1.5rem;            /* Margen superior */
-}
-
-.cbtis-notices-box h3 {
-    font-size: 1.1rem;             /* Título de aviso */
-    margin-bottom: 0.4rem;         /* Margen inferior */
-}
-
-.cbtis-notices-box p {
-    font-size: 0.85rem;            /* Texto pequeño */
-    color: #e0e7ff;                /* Azul claro tenue */
-    line-height: 1.4;              /* Altura de línea */
-}
-
-.cbtis-slider-dots {
-    display: flex;                 /* Indicadores de slider en fila */
-    justify-content: center;       /* Centrados */
-    gap: 8px;                      /* Espacio entre puntos */
-    margin-top: 1.5rem;            /* Margen superior */
-}
-
-.cbtis-dot {
-    width: 8px;                    /* Ancho de punto inactivo */
-    height: 8px;                   /* Alto de punto inactivo */
-    background-color: rgba(255, 255, 255, 0.4); /* Translúcido */
-    border-radius: 50%;            /* Circular */
-}
-
-.cbtis-dot.active {
-    background-color: #ffffff;     /* Blanco sólido para punto activo */
-    width: 24px;                   /* Más ancho simulando barra activa */
-    border-radius: 4px;            /* Bordes redondeados */
-}
-
-.cbtis-left-footer {
-    font-size: 0.72rem;            /* Letra pequeña institucional */
-    color: #bfdbfe;                /* Azul muy claro */
-    text-align: center;            /* Centrado */
-    line-height: 1.3;              /* Altura de línea */
-}
-
-.cbtis-right-panel {
-    background-color: #ffffff;     /* Panel derecho blanco para el formulario de login */
-    padding: 3rem 3.5rem;          /* Relleno interno amplio */
-    display: flex;                 /* Flexible */
-    flex-direction: column;        /* Vertical */
-    justify-content: center;       /* Centrado vertical */
-}
-
-.cbtis-login-wrapper {
-    width: 100%;                   /* Ancho completo */
-    max-width: 350px;              /* Ancho máximo del contenedor de login */
-    margin: 0 auto;                /* Centrado horizontal */
-}
-
-.login-back-container {
-    margin-bottom: 1.5rem;         /* Margen inferior */
-}
-
-.cbtis-back-link {
-    color: #2563eb;                /* Enlace azul */
-    font-size: 0.82rem;            /* Tamaño pequeño */
-    text-decoration: none;         /* Sin subrayado */
-    font-weight: 600;              /* Seminegrita */
-}
-
-.cbtis-back-link:hover {
-    text-decoration: underline;    /* Subraya al pasar cursor */
-}
-
-.cbtis-logo-header {
-    text-align: center;            /* Centrado */
-    margin-bottom: 2rem;           /* Margen inferior */
-}
-
-.login-logo-emoji {
-    font-size: 2.2rem;             /* Emoji grande */
-    margin-bottom: 0.2rem;         /* Margen inferior */
-}
-
-.cbtis-logo-header h1 {
-    font-size: 1.3rem;             /* Tamaño título */
-    color: #0f172a;                /* Oscuro */
-    font-weight: 700;              /* Negrita */
-}
-
-.cbtis-logo-header h1 span {
-    color: #2563eb;                /* Acento en azul */
-}
-
-.cbtis-input-group {
-    margin-bottom: 1.8rem;         /* Espacio inferior */
-    position: relative;            /* Posicionamiento relativo */
-}
-
-.cbtis-input-group label {
-    display: block;                /* Ocupa su línea */
-    font-size: 0.82rem;            /* Pequeño */
-    color: #64748b;                /* Gris */
-    margin-bottom: 0.3rem;         /* Margen inferior */
-    font-weight: 500;              /* Medio */
-}
-
-.cbtis-input-group input {
-    width: 100%;                   /* Ancho completo */
-    border: none;                  /* Sin borde completo */
-    border-bottom: 1px solid #cbd5e1; /* Borde inferior estilo material design */
-    padding: 8px 0;                /* Relleno */
-    font-size: 0.95rem;            /* Tamaño de fuente */
-    color: #0f172a;                /* Oscuro */
-    background: transparent;       /* Fondo transparente */
-    outline: none;                 /* Sin contorno */
-    transition: border-color 0.2s; /* Transición suave */
-}
-
-.cbtis-input-group input:focus {
-    border-bottom: 2px solid #2563eb; /* Cambia a borde inferior azul grueso al enfocar */
-}
-
-.cbtis-btn-ingresar {
-    width: 100%;                   /* Ancho completo */
-    background-color: #2563eb;     /* Azul corporativo */
-    color: white;                  /* Texto blanco */
-    border: none;                  /* Sin bordes */
-    padding: 12px;                 /* Relleno */
-    border-radius: 6px;            /* Esquinas redondeadas */
-    font-weight: 700;              /* Negrita */
-    font-size: 0.95rem;            /* Tamaño */
-    cursor: pointer;               /* Mano interactiva */
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); /* Sombra azul */
-    transition: background-color 0.2s, transform 0.1s; /* Transiciones */
-    margin-top: 0.5rem;            /* Margen superior */
-}
-
-.cbtis-btn-ingresar:hover {
-    background-color: #1d4ed8;     /* Azul más oscuro al pasar cursor */
-}
-
-.cbtis-login-help {
-    text-align: center;            /* Centrado */
-    margin-top: 1.8rem;            /* Margen superior */
-    font-size: 0.82rem;            /* Pequeño */
-}
-
-.cbtis-login-help a {
-    color: #2563eb;                /* Azul */
-    text-decoration: none;         /* Sin subrayado */
-    font-weight: 600;              /* Seminegrita */
-}
-
-.cbtis-login-help a:hover {
-    text-decoration: underline;    /* Subraya al pasar cursor */
 }
 
 /* ======================================================================
    ESTILOS Y RECORRIDO DE DOCENTES
    ====================================================================== */
 .teachers-section {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); /* Fondo degradado oscuro */
-    color: white;                  /* Texto blanco */
-    padding: 4rem 1.5rem;          /* Relleno superior/inferior y lateral */
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color: white;
+    padding: 4rem 1.5rem;
 }
 
 .teachers-container {
-    max-width: 1200px;             /* Ancho máximo centrado */
-    margin: 0 auto;                /* Centrado horizontal */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .teachers-header {
-    display: flex;                 /* Flexible */
-    justify-content: space-between; /* Separa título de botones */
-    align-items: flex-end;         /* Alineación inferior */
-    margin-bottom: 2.5rem;         /* Margen inferior */
-    flex-wrap: wrap;               /* Adaptable */
-    gap: 1.5rem;                   /* Espacio entre elementos */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .teachers-tag {
-    display: inline-block;         /* Bloque en línea */
-    color: #93c5fd;                /* Azul claro */
-    font-size: 0.82rem;            /* Pequeño */
-    font-weight: 700;              /* Negrita */
-    text-transform: uppercase;     /* Mayúsculas */
-    margin-bottom: 0.6rem;         /* Margen inferior */
-    letter-spacing: 0.5px;         /* Espaciado de letras */
+    display: inline-block;
+    color: #93c5fd;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.5px;
 }
 
 .convenience-tag-custom {
-    color: #2563eb;                /* Azul específico para convenios */
+    color: #2563eb;
 }
 
 .teachers-header h2 {
-    font-size: 2.2rem;             /* Título grande */
-    font-weight: 800;              /* Negrita fuerte */
-    margin-bottom: 0.6rem;         /* Margen inferior */
-    letter-spacing: -0.5px;        /* Espaciado ajustado */
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.5px;
 }
 
 .teachers-header p {
-    color: #cbd5e1;                /* Gris claro */
-    font-size: 1rem;               /* Estándar */
-    max-width: 700px;              /* Ancho máximo para lectura cómoda */
-    line-height: 1.6;              /* Altura de línea */
+    color: #cbd5e1;
+    font-size: 1rem;
+    max-width: 700px;
+    line-height: 1.6;
 }
 
 .teachers-nav-buttons {
-    display: flex;                 /* Botones en línea */
-    gap: 10px;                     /* Espaciado entre flechas */
+    display: flex;
+    gap: 10px;
 }
 
 .nav-btn {
-    width: 42px;                   /* Ancho fijo circular */
-    height: 42px;                  /* Alto fijo circular */
-    background: rgba(255, 255, 255, 0.1); /* Translúcido */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde translúcido */
-    color: white;                  /* Símbolo blanco */
-    border-radius: 50%;            /* Circular */
-    font-size: 1.4rem;             /* Tamaño de flecha */
-    cursor: pointer;               /* Mano interactiva */
-    display: flex;                 /* Centrado interno */
-    align-items: center;           /* Centrado vertical */
-    justify-content: center;       /* Centrado horizontal */
-    transition: background 0.2s, transform 0.1s; /* Transiciones */
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
 }
 
 .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.25); /* Aclara al pasar cursor */
-    transform: scale(1.05);        /* Ligero zoom */
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
 }
 
 .teachers-grid {
-    display: flex;                 /* Carrusel horizontal flexible */
-    gap: 1.5rem;                   /* Espacio entre tarjetas de profesores */
-    overflow-x: auto;              /* Permite scroll horizontal */
-    scroll-behavior: smooth;       /* Movimiento fluido al usar botones */
-    padding-bottom: 1rem;          /* Relleno inferior */
-    scrollbar-width: none;         /* Oculta barra de desplazamiento en Firefox */
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
 }
 
 .teachers-grid::-webkit-scrollbar {
-    display: none;                 /* Oculta barra de desplazamiento en Chrome/Safari */
+    display: none;
 }
 
 .teacher-card {
-    flex: 0 0 calc(25% - 1.15rem); /* Ancho fijo exacto para mostrar 4 tarjetas en pantallas grandes */
-    background: #1e293b;           /* Fondo gris oscuro azulado */
-    border-radius: 16px;           /* Bordes redondeados */
-    overflow: hidden;              /* Oculta desbordamientos */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transiciones */
+    flex: 0 0 calc(25% - 1.15rem);
+    background: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 @media (max-width: 1024px) {
     .teacher-card {
-        flex: 0 0 calc(43% - 0.75rem); /* Ajusta para mostrar 2 tarjetas en tablets */
+        flex: 0 0 calc(43% - 0.75rem);
     }
 }
 
 @media (max-width: 650px) {
     .teacher-card {
-        flex: 0 0 82%;             /* Ajusta para mostrar una tarjeta grande en móviles */
+        flex: 0 0 82%;
     }
 }
 
 .teacher-card:hover {
-    transform: translateY(-5px);   /* Eleva la tarjeta al pasar el cursor */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra oscura profunda */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 .teacher-card img {
-    width: 100%;                   /* Ancho completo */
-    height: 240px;                 /* Altura fija de la foto del docente */
-    object-fit: cover;             /* Recorte proporcional */
-    object-position: top;          /* Enfoca la parte superior (rostro) de la foto */
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
 }
 
 .teacher-info {
-    padding: 1.5rem;               /* Relleno interior para los datos del profesor */
-    background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%); /* Degradado interno */
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
 }
 
 .teacher-info h3 {
-    font-size: 1.1rem;             /* Nombre del profesor */
-    font-weight: 700;              /* Negrita */
-    color: white;                  /* Blanco */
-    margin-bottom: 0.4rem;         /* Margen inferior */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.4rem;
 }
 
 .teacher-info p {
-    font-size: 0.85rem;            /* Descripción de especialidad */
-    color: #94a3b8;                /* Gris claro */
-    line-height: 1.4;              /* Altura de línea */
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.4;
 }
 
 /* ======================================================================
-   ESTILOS DE CONVENIOS EN DOBLE LÍNEA (MARQUESINAS INFINITAS)
+   ESTILOS DE CONVENIOS (MARQUESINAS)
    ====================================================================== */
 .convenios-section {
-    padding: 5rem 0;               /* Relleno superior e inferior */
-    background-color: #ffffff;     /* Fondo blanco */
-    overflow: hidden;              /* Oculta desbordamientos laterales */
-    border-top: 1px solid #e2e8f0; /* Borde superior sutil */
-    border-bottom: 1px solid #e2e8f0; /* Borde inferior sutil */
+    padding: 5rem 0;
+    background-color: #ffffff;
+    overflow: hidden;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .convenios-container {
-    max-width: 1200px;             /* Ancho máximo centrado */
-    margin: 0 auto;                /* Centrado horizontal */
-    padding: 0 2rem;               /* Relleno lateral */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .marquee-wrapper {
-    position: relative;            /* Posicionamiento relativo para la marquesina */
-    width: 100%;                   /* Ancho completo */
-    overflow: hidden;              /* Oculta tarjetas fuera de pantalla */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* Desvanece los bordes izquierdo y derecho */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); /* Soporte WebKit para desvanecimiento */
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .marquee-wrapper-spacing {
-    margin-top: 1.5rem;            /* Separación entre la primera y segunda línea de convenios */
+    margin-top: 1.5rem;
 }
 
 .marquee-track {
-    display: flex;                 /* Elementos en línea horizontal continua */
-    gap: 1.5rem;                   /* Espacio entre tarjetas de marcas */
-    width: max-content;            /* Ancho automático basado en el contenido total */
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
 }
 
 .marquee-wrapper:hover .marquee-track {
-    animation-play-state: paused !important; /* Pausa el movimiento al pasar el cursor sobre las marcas */
+    animation-play-state: paused !important;
 }
 
 .marquee-track-top {
-    animation: scrollLeft 35s linear infinite; /* Animación continua hacia la izquierda */
+    animation: scrollLeft 35s linear infinite;
 }
 
 .marquee-track-bottom {
-    animation: scrollRight 35s linear infinite; /* Animación continua hacia la derecha (inversa) */
+    animation: scrollRight 35s linear infinite;
 }
 
 @keyframes scrollLeft {
-    0% { transform: translateX(0); }         /* Inicia en posición original */
-    100% { transform: translateX(-50%); }    /* Desplaza exactamente la mitad (el grupo original) para crear bucle infinito */
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 @keyframes scrollRight {
-    0% { transform: translateX(-50%); }      /* Inicia desplazado a la mitad */
-    100% { transform: translateX(0); }       /* Regresa a la posición inicial creando bucle fluido */
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
 .convenio-card {
-    background: #f8fafc;           /* Fondo gris muy claro para cada tarjeta de empresa */
-    border: 1px solid #e2e8f0;     /* Borde gris sutil */
-    padding: 1.2rem 2rem;          /* Relleno interior generoso */
-    border-radius: 12px;           /* Bordes redondeados */
-    font-weight: 600;              /* Seminegrita */
-    font-size: 1rem;               /* Tamaño estándar */
-    color: #334155;                /* Color de texto gris oscuro */
-    white-space: nowrap;           /* Impide que el texto de la marca haga salto de línea */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01); /* Sombra muy tenue */
-    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease; /* Transiciones suaves */
-    display: flex;                 /* Flexible */
-    align-items: center;           /* Centrado vertical */
-    justify-content: center;       /* Centrado horizontal */
-    min-width: 190px;              /* Ancho mínimo uniforme para todas las tarjetas */
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #334155;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 190px;
 }
 
 .convenio-card:hover {
-    transform: translateY(-3px);   /* Eleva la tarjeta de convenio al pasar el cursor */
-    border-color: #2563eb;         /* Cambia el borde a azul corporativo */
-    background-color: #ffffff;     /* Fondo blanco puro */
-    color: #2563eb;                /* Texto azul corporativo */
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08); /* Sombra azulada elegante */
+    transform: translateY(-3px);
+    border-color: #2563eb;
+    background-color: #ffffff;
+    color: #2563eb;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+}
+/* ======================================================================
+   ESTILOS EXCLUSIVOS PARA EL PORTAL DE LOGIN (LOGIN.HTML)
+   ====================================================================== */
+
+/* 1. Fondo completo de la pantalla de Login (Sobrescribe el rojo global) */
+body.cbtis-login-body {
+    background: #000000 !important; /* Fondo oscuro elegante */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 2. Tarjeta contenedora principal dividida en 2 columnas */
+.cbtis-login-container {
+    display: flex;
+    width: 100%;
+    max-width: 950px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    min-height: 550px;
+}
+
+/* 3. Lado Izquierdo: Panel de Bienvenida (Azul/Gris institucional) */
+.cbtis-left-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #2a3546 0%, #2b3242 100%);
+    color: #ffffff;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cbtis-illustration-box h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.cbtis-badge-icon {
+    font-size: 3.5rem;
+}
+
+.cbtis-notices-box {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cbtis-notices-box h3 {
+    font-size: 1.1rem;
+    color: #60a5fa;
+    margin-bottom: 0.5rem;
+}
+
+.cbtis-notices-box p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.cbtis-slider-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 1.5rem;
+}
+
+.cbtis-dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.cbtis-dot.active {
+    background: #2563eb;
+    width: 25px;
+    border-radius: 10px;
+}
+
+.cbtis-left-footer {
+    font-size: 0.78rem;
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 2rem;
+}
+
+/* 4. Lado Derecho: Formulario de Autenticación */
+.cbtis-right-panel {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 3rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cbtis-login-wrapper {
+    width: 100%;
+    max-width: 360px;
+}
+
+.login-back-container {
+    margin-bottom: 1.5rem;
+}
+
+.cbtis-back-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.cbtis-back-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.cbtis-logo-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.login-logo-emoji {
+    font-size: 2.2rem;
+}
+
+.cbtis-logo-header h1 {
+    font-size: 1.8rem;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.cbtis-logo-header h1 strong {
+    color: #2563eb;
+}
+
+.cbtis-input-group {
+    margin-bottom: 1.3rem;
+    text-align: left;
+}
+
+.cbtis-input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.4rem;
+}
+
+.cbtis-input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cbtis-input-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.cbtis-btn-ingresar {
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 0.5rem;
+}
+
+.cbtis-btn-ingresar:hover {
+    background-color: #1d4ed8;
+}
+
+.cbtis-login-help {
+    margin-top: 1.8rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+.cbtis-login-help a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cbtis-login-help a:hover {
+    text-decoration: underline;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+    .cbtis-login-container {
+        flex-direction: column;
+    }
+    .cbtis-left-panel {
+        display: none; /* Oculta el panel izquierdo en pantallas pequeñas */
+    }
+    .cbtis-right-panel {
+        padding: 2.5rem 1.5rem;
+    }
 }
